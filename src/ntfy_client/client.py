@@ -6,18 +6,17 @@ import hmac
 import uuid
 
 
-class NtfyNotifier:
+class NtfyClient:
 
     def __init__(self, base_url="https://ntfy.sh"):
         """
-        Initialize Ntfy notifier with optional base URL
+        Initialise Ntfy notifier with optional base URL
 
         Args:
             base_url (str, optional): Base URL for ntfy service. Defaults to public ntfy.sh
         """
         self.base_url = base_url
         self.session = requests.Session()
-        self.session.verify = r"C:\Users\alexander.gardner\OneDrive - EWEC\Common Software and Templates\Data Science\4. Models and Projects\solar_apis\src\reuniwatt_client\ZscalerRootCertificate-2048-SHA256.pem"
 
     def generate_secure_topic(self, method='random', **kwargs):
         """
@@ -50,7 +49,8 @@ class NtfyNotifier:
         else:
             raise ValueError(f"Unsupported topic generation method: {method}")
 
-    def _generate_random_topic(self, length=32, complexity=2):
+    @staticmethod
+    def _generate_random_topic(length=32, complexity=2):
         """
         Generate a cryptographically secure random topic
 
@@ -68,7 +68,8 @@ class NtfyNotifier:
         else:
             return base64.urlsafe_b64encode(secrets.token_bytes(length)).decode('utf-8').rstrip('=')
 
-    def _generate_hmac_topic(self, secret_key, identifier, hash_algorithm=hashlib.sha256):
+    @staticmethod
+    def _generate_hmac_topic(secret_key, identifier, hash_algorithm=hashlib.sha256):
         """
         Generate a topic using HMAC
 
@@ -86,7 +87,8 @@ class NtfyNotifier:
         hmac_result = hmac.new(secret_key, identifier, hash_algorithm)
         return hmac_result.hexdigest()
 
-    def _generate_compound_topic(self, base_topic=None):
+    @staticmethod
+    def _generate_compound_topic(base_topic=None):
         """
         Create a compound topic with multiple layers of randomness
 
@@ -175,29 +177,5 @@ class NtfyNotifier:
             print(f"Subscription error: {e}")
 
 
-def main():
-    # dealing with emoji tags https://docs.ntfy.sh/publish/#tags-emojis
-    # Create Ntfy notifier
-    notifier = NtfyNotifier()
-    topic = "LHuqWJWA1jdeTol9MOuXXA"
-
-    # Generate different types of secure topics
-    random_topic = notifier.generate_secure_topic(method='random', length=16, complexity=3)
-    hmac_topic = notifier.generate_secure_topic(
-        method='hmac',
-        secret_key='your_secret_key',
-        identifier='user_device_id'
-    )
-
-    # Send notifications
-    notifier.send_notification(
-        topic=topic,
-        title="Scrape Completed",
-        message="Validation",
-        priority=5,
-        tags="warning"
-    )
-
-
 if __name__ == "__main__":
-    main()
+    pass

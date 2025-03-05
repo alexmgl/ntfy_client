@@ -1,0 +1,1 @@
+from .ntfy_client.client import NtfyClient
