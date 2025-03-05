@@ -8,10 +8,10 @@ A Python client to send notifications to the NTFY API.
 
 ## Overview
 
-The Nordpool Client provides an easy-to-use interface for retrieving various types of Nordpool electricity market data, including:
+The NTFY Client provides an easy-to-use interface :
 
-- **Auction Data**: Retrieve auction configurations and latest auction availability.
-- **Day-Ahead Prices**: Get day-ahead prices for multiple delivery areas.
+- **PLACEHOLDER 1**: Lorem ipsum.
+- **PLACEHOLDER 2**: Lorem ipsum.
 
 ## Installation
 
