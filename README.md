@@ -29,7 +29,7 @@ Or clone the repository and install locally:
 
 ```bash
 git clone https://github.com/alexmgl/ntfy_client.git
-cd nordpool_client
+cd ntfy_client
 pip install .
 ```
 
