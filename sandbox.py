@@ -2,11 +2,9 @@ from src import NtfyClient
 
 if __name__ == '__main__':
 
-    topic = "YOUR_TOPIC_NAME_HERE"
-
     # EXAMPLE ONE
 
-    client = NtfyClient(topic=topic)
+    client = NtfyClient(topic="LHuqWJWA1jdeTol9MOuXXA")
 
     # Send notifications
     client.send_notification(
@@ -24,6 +22,8 @@ if __name__ == '__main__':
     # EXAMPLE TWO
 
     client = NtfyClient()
+
+    topic = "LHuqWJWA1jdeTol9MOuXXA"
 
     # Send notifications
     client.send_notification(
