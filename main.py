@@ -13,7 +13,7 @@ if __name__ == '__main__':
         title="Example 1.1",
         message="Validation",
         priority=5,
-        tags="warning"
+        tags="watermelon,boomerang"
     )
 
     @client.ntfy(message="Example 1.2", priority=5, title="Notification", tags="warning")

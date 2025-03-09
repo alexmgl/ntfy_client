@@ -59,6 +59,14 @@ client = NtfyClient(topic="example-topic")
 
 # Send a notification to the topic
 client.send_notification("Hello, world!")
+
+# Send notification with more information
+client.send_notification(
+    title="Example Notification",
+    message="Testing NTFY API",
+    priority=5,
+    tags="warning"
+)
 ```
 
 #### Auto-generating a Topic
@@ -99,6 +107,23 @@ def my_function():
 
 # When my_function is called, it will automatically send a notification.
 my_function()
+```
+
+### Adding Emojis
+The full emoji list can be found here: https://docs.ntfy.sh/emojis/
+```python
+from ntfy_client import NtfyClient
+
+# Create a client with a specified topic
+client = NtfyClient(topic="example-topic")
+
+# Send notification with more information
+client.send_notification(
+    title="Example Notification",
+    message="Testing NTFY API",
+    priority=5,
+    tags="watermelon,boomerang"
+)
 ```
 
 ### License
