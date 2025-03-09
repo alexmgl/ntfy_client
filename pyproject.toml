@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ntfy-client"
-version = "0.0.1"
+version = "1.0.1"
 description = "A python client to fetch, process, and analyse Nordpool data."
 readme = "README.md"
 license = { text = "MIT" }
